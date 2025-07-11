@@ -20,6 +20,12 @@ def test_violation_1():
 
 def test_violation_2():
     try:
+        socket.setdefaulttimeout(-435)
+    except ValueError:
+        pass
+
+def test_violation_3():
+    try:
         socket.setdefaulttimeout(-3.4)
     except ValueError:
         pass

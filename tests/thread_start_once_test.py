@@ -56,6 +56,18 @@ def test_violation_1():
 
 
 def test_violation_2():
+    my_thread = threading.Thread(target=run)
+    my_thread.start()
+    my_thread2 = threading.Thread(target=run)
+    my_thread2.start()
+    my_thread3 = threading.Thread(target=run)
+    try:
+        my_thread3.start()
+    except RuntimeError:
+        pass
+
+
+def test_violation_3():
     threads = []
     for i in range(NUM_THREADS):
         threads.append(threading.Thread(target=run))

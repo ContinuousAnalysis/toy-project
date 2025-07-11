@@ -5,6 +5,8 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 def test_ok_1():
     assert 1 == 1
+    assert 2 == 2
+    assert 3 == 3
 
 def test_ok_2():
     s.settimeout(None)
