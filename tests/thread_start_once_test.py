@@ -61,6 +61,7 @@ def test_violation_2():
     my_thread2 = threading.Thread(target=run)
     my_thread2.start()
     my_thread3 = threading.Thread(target=run)
+    my_thread3.start()
     try:
         my_thread3.start()
     except RuntimeError:
