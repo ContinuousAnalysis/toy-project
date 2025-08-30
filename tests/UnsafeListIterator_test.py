@@ -1,0 +1,32 @@
+def test_ok_1():
+    l = list(range(20))
+    l.append(100)
+    l.append(101)
+    iter = iter(l)
+    next(iter)
+    next(iter)
+
+def test_violation_1():
+    l = list(range(20))
+    l.append(100)
+    l.append(101)
+    it = iter(l)
+    l.pop(0)
+    next(it)
+
+def test_violation_2():
+    print("test_violation_2")
+    l = list(range(20))
+    print("before append")
+    l.append(100)
+    l.append(101)
+    print("after append")
+    it = iter(l)
+    print("before next")
+    next(it)
+    print("after next")
+    l.pop(0)
+    print("after pop")
+    next(it)
+    print("after next")
+    next(it)

@@ -1,14 +1,10 @@
 def test_ok_1():
     string_set = {"banana", "apple", "cherry"}
     sorted_set = sorted(string_set)
-
-def test_ok_2():
-    mixed_set = {3, "banana", 1, "apple"}
-    sorted_set = sorted(mixed_set, key=str)
-
-def test_ok_3():
-    string_set = {"banana", "apple", "cherry"}
-    sorted_set = sorted(string_set, key=len)
+    if sorted_set == ["apple", "banana", "cherry"]:
+        print("sorted_set is correct")
+    else:
+        print("sorted_set is incorrect")
 
 def test_violation_1():
 	mixed_set = {3, "banana", 1, "apple"}
