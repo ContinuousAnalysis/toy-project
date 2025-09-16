@@ -1,0 +1,23 @@
+name: Trigger Continuous Analysis Auto Runners
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Commit SHA to test'
+        required: false
+        type: string
+
+permissions:
+  actions: read
+  contents: write
+  issues: write
+
+jobs:
+  call-continuous-analysis-auto-runner: 
+    uses: ContinuousAnalysis/continuous-analysis/.github/workflows/auto-runner.yml@main
+    with:
+      project: ${{ github.repository }}
+      commit: ${{ inputs.commit || github.sha }}
+    secrets:
+      ORG_WIDE_TOKEN: ${{ secrets.ORG_WIDE_TOKEN }}
